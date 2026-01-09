@@ -2,6 +2,7 @@ package menu.config;
 
 import menu.controller.InputController;
 import menu.controller.MenuController;
+import menu.util.InputParser;
 import menu.view.InputView;
 import menu.view.OutputView;
 
@@ -15,10 +16,15 @@ public class AppConfig {
         return new OutputView();
     }
 
+    public InputParser inputParser() {
+        return new InputParser();
+    }
+
     public InputController inputController(){
         return new InputController(
                 inputView(),
-                outputView()
+                outputView(),
+                inputParser()
         );
     }
 
