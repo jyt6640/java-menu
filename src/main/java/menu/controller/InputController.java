@@ -18,10 +18,20 @@ public class InputController {
         this.inputParser = inputParser;
     }
 
-    public Coaches getCoachName() {
+    public List<String> getCoachName() {
         while (true) {
             try {
-                return new Coaches(readCoachName());
+                return readCoachName();
+            } catch (IllegalArgumentException e) {
+                outputView.printErrorMessage(e);
+            }
+        }
+    }
+
+    public List<String> getHateFoods(String coach) {
+        while (true) {
+            try {
+                return readHateFood(coach);
             } catch (IllegalArgumentException e) {
                 outputView.printErrorMessage(e);
             }
@@ -31,5 +41,10 @@ public class InputController {
     private List<String> readCoachName() {
         String value = inputView.readCoachName();
         return inputParser.parseCoaches(value);
+    }
+
+    private List<String> readHateFood(String coach) {
+        String value = inputView.readHateFood(coach);
+        return inputParser.parseHateFoods(value);
     }
 }

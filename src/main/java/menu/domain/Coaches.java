@@ -7,12 +7,8 @@ public class Coaches {
 
     private List<Coach> coaches;
 
-    public Coaches(List<String> coach) {
-        List<Coach> cs = new ArrayList<>();
-        for (String c : coach) {
-            cs.add(new Coach(c));
-        }
-        this.coaches = cs;
+    public Coaches(List<Coach> coaches) {
+        this.coaches = coaches;
     }
 
     public List<Coach> getCoaches() {
